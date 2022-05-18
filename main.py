@@ -7,16 +7,17 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5.QtGui import QFont, QPainter, QBrush, QPen
 from PyQt5 import QtCore
 
+from math import floor
 # To change what accounts the program grabs, change these values
 
 platform = "pc"
 region = "us"
 
 player1 = "BonzosBGN-1925"
-player2 = "COTF-11336"
+player2 = "SarcophaGus-11668"
 player3 = "JDat-1846"
 player4 = "ReputeUrchin-1953"
-player5 = "SarcophaGus-11668"
+player5 = "WackyD-11704"
 player6 = "Your3Welcome-1387"
 
 role1 = 'tank'
@@ -39,6 +40,7 @@ def getPlayerSR(pf, rg, player, role):
         return "Profile not found"
     sr = (a['competitive'][role]['rank'])
     if sr is not None:
+        print(player + "  SR: " + str(sr))
         return sr
     else:
         return 0000
@@ -53,7 +55,7 @@ rank6 = getPlayerSR(platform, region, player6, role6)
 def findAvgSR(sr1, sr2, sr3, sr4, sr5, sr6):
     total = sr1 + sr2 + sr3 + sr4 + sr5 + sr6
     avg = total / 6
-    return avg
+    return floor(avg)
 #
 #   Qt5 Application code
 #
